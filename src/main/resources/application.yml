@@ -1,0 +1,47 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  tomcat:
+    accept-count: 1000
+    max-connections: 5000
+    max-threads: 500
+    min-spare-threads: 50
+    connection-timeout: 120000
+
+spring:
+  datasource:
+    url: jdbc:h2:./h2
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+    jpa:
+      show-sql: true
+      open-in-view: true
+      hibernate:
+        ddl-auto: create
+      database: h2
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.H2Dialect
+          show_sql: false
+          use_sql_comments: true
+          format_sql: true
+          order_inserts: true
+          order_updates: true
+          jdbc:
+            batch_size: 500
+            batch_version_data: true
+
+    h2:
+      console:
+        enabled: true
+
+logging:
+  file:
+    max-size: 500MB
+    path: ./log
+
+
+
